@@ -28,17 +28,17 @@ class Shop:
             print('Ничего нет')
 
     def add(self, *products):
-        if not os.path.exists(self.__file_name):
-            temp_file = open(self.__file_name, 'w')
-            temp_file.close()
-        else:
-            for product in products:
-                if str(product) in self.get_products():
-                    print(f'Продкут {product} уже есть в магазине')
-                elif os.path.exists(self.__file_name):
-                    temp_file = open(self.__file_name, 'a')
-                    temp_file.write(f'{product}\n')
-                    temp_file.close()
+        for product in products:
+            if not os.path.exists(self.__file_name):
+                temp_file = open(self.__file_name, 'w')
+                temp_file.write(f'{product}\n')
+                temp_file.close()
+            elif str(product) in self.get_products():
+                print(f'Продкут {product} уже есть в магазине')
+            elif os.path.exists(self.__file_name):
+                temp_file = open(self.__file_name, 'a')
+                temp_file.write(f'{product}\n')
+                temp_file.close()
 
 
 s1 = Shop()
