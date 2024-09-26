@@ -34,7 +34,7 @@ class Shop:
         else:
             for product in products:
                 goods = [str(product).split(',')]
-                if goods[0][0] in self.get_products():
+                if str(product) in self.get_products():
                     print(f'Продкут {product} уже есть в магазине')
                 elif os.path.exists(self.__file_name):
                     temp_file = open(self.__file_name, 'a')
