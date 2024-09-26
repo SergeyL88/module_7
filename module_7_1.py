@@ -33,7 +33,6 @@ class Shop:
             temp_file.close()
         else:
             for product in products:
-                goods = [str(product).split(',')]
                 if str(product) in self.get_products():
                     print(f'Продкут {product} уже есть в магазине')
                 elif os.path.exists(self.__file_name):
